@@ -2,31 +2,36 @@
 
 React ES6 components ready to be MDL upgraded
 
-## Usage Instructions
+## Install Instructions
 
 1. `npm install material-design-lite --save`.
-2. Install (--save) this package directly from GitHub because it ain't on NPM yet
-3. Import the mdlUpgrade, a function that receives a React component and calls
-material-design-lite functions to "upgrade"
+2. `npm install https://github.com/iporaitech/react-to-mdl/tarball/master --save`
 
-  `import { mdlUpgrade } from 'rmdl';`
-4. Import the corresponding components, for eample
+NOTICE:
+* this package is not publishe in NPM yet.
+* you can also install an specific release by replacing master with the version
+i.e., `npm install https://github.com/iporaitech/react-to-mdl/tarball/v0.1.0 --save`
+
+## Usage Example
+
 ```javascript
-  import Layout, {
-    LayoutHeader,
-    LayoutIcon,
-    LayoutHeaderRow,
-    LayoutTitle,
-    LayoutSpacer,
-    Navigation,
-    NavigationLink,
-    LayoutDrawer,
-    LayoutContent,
-  } from 'rmdl/layout';
+
+// Import the function you'll use to upgrade your Component and its children
+import { mdlUpgrade } from 'react-to-mdl';
+import Layout, {
+  LayoutHeader,
+  LayoutIcon,
+  LayoutHeaderRow,
+  LayoutTitle,
+  LayoutSpacer,
+  Navigation,
+  NavigationLink,
+  LayoutDrawer,
+  LayoutContent,
+} from 'rmdl/layout';
+
 ```
-5. Use the components to compose your component.
-6. Pass your component to mdlUpgrade to make your components look like Material
-Design Lite
+
 
 ## TODO
 
