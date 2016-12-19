@@ -1,6 +1,6 @@
 {
   "name": "react-to-mdl",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React components ready to be MDL upgraded",
   "readme": "https://github.com/iporaitech/rmdl/blob/master/README.md",
   "license": "MIT",
@@ -12,7 +12,8 @@
   "scripts": {
     "start": "node server.js",
     "build:dev": "webpack --watch-stdin --progress --color --config webpack.config.js",
-    "build:prod": "NODE_ENV=production webpack -p --progress --config webpack.config.js"
+    "build:prod": "NODE_ENV=production webpack -p --progress --config webpack.config.js",
+    "postinstall": "ln -s lib/* .; rm index.js;"
   },
   "keywords": [
     "React",
