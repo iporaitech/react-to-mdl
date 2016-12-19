@@ -18,7 +18,7 @@ export default class Layout extends React.Component {
     const classes = classNames('mdl-js-layout mdl-layout', {
       'mdl-layout--fixed-drawer': fixedDrawer,
       'mdl-layout--fixed-header': fixedHeader,
-      'mdl-layout--fixed-tabs': fixedTabs,
+      'mdl-layout--fixed-tabs': fixedTabs
     }, className);
 
     return (

@@ -1,26 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
-const libraryName = 'rmdl';
-const devtool = process.env.NODE_ENV == 'production' ?
-  'source-map' : 'cheap-source-map';
-const plugins = process.env.NODE_ENV == 'production' ?
-  [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin()
-  ] : null;
+const libraryName = 'react-to-mdl';
 
-/** exports **/
+// export config
 module.exports = {
-  devtool: devtool,
+  devtool: 'cheap-module-eval-source-map',
   entry: {
     layout: './src/layout',
-    lib: './src/index'
+    index: './src/index'
   },
-  plugins: plugins,
   externals: [
     'classnames',
     'material-design-lite',
@@ -29,8 +17,8 @@ module.exports = {
     'react-router'
   ],
   output: {
-    path: __dirname,
-    filename: '[name]/index.js',
+    path: path.join(__dirname, 'lib'),
+    filename: '[name].js',
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -39,10 +27,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      exclude: /node_modules/,
-      query: {
-        presets: ['react', 'es2015', 'stage-0']
-      }
+      include: path.join(__dirname, 'src')
     }]
   }
 };
