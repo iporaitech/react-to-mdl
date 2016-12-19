@@ -24,7 +24,6 @@ class App extends React.Component {
             <LayoutSpacer />
             <Navigation>
               <NavigationLink to="/">Home</NavigationLink>
-              <NavigationLink to="/graphiql">GraphiQL</NavigationLink>
             </Navigation>
           </LayoutHeaderRow>
         </LayoutHeader>
@@ -32,7 +31,7 @@ class App extends React.Component {
         <LayoutDrawer>
           <Navigation>
             <NavigationLink to="/">Home</NavigationLink>
-            <NavigationLink to="/graphiql">GraphiQL</NavigationLink>
+            <NavigationLink to="#cards">Cards</NavigationLink>
             {/* <LogoutLink /> */}
           </Navigation>
         </LayoutDrawer>
