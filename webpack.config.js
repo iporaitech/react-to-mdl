@@ -6,7 +6,15 @@ const libraryName = 'react-to-mdl';
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: {
+    button: './src/button',
+    card: './src/card',
+    dataTable: './src/dataTable',
+    grid: './src/grid',
     layout: './src/layout',
+    menu: './src/menu',
+    spinner: './src/spinner',
+    tabs: './src/tabs',
+    textfield: './src/textfield',
     index: './src/index'
   },
   externals: [
