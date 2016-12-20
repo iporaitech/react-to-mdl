@@ -10,6 +10,9 @@ import classNames from 'classnames';
 // This component usually needs to upgrade itself !!!
 import { mdlUpgrade } from '../lib/mdlUpgrade';
 
+// MDL's js requires these styles to be imported globally
+import '!style!css!sass!material-design-lite/src/spinner/_spinner.scss';
+
 class Spinner extends React.Component {
   static propTypes = {
     isActive: PropTypes.bool,
