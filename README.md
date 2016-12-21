@@ -12,7 +12,7 @@ master to see what's in the last release.
 2. `npm install https://github.com/iporaitech/react-to-mdl/tarball/master --save`
 
 NOTICE:
-* this package is not publishe in NPM yet.
+* this package is not published in NPM yet.
 * you can also install an specific release by replacing master with the version
 i.e., `npm install https://github.com/iporaitech/react-to-mdl/tarball/v0.1.0 --save`
 
