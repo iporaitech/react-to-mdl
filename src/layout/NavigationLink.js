@@ -1,23 +1,35 @@
-// file: shared/layout/NavigationLink.js
+// file: src/layout/NavigationLink.js
 
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router';
 
 export class NavigationLink extends React.Component {
   static propTypes = {
+    id: PropTypes.string,
+    href: PropTypes.string.isRequired,
     className: PropTypes.string,
-    to: PropTypes.string.isRequired
+    tag: PropTypes.oneOf(['a'])
+  }
+
+  static defaultProps = {
+    tag: 'a'
   }
 
   render() {
-    const { className, to } = this.props;
-    const classes = classNames('mdl-navigation__link', className);
+    const { className, id, tag, href, ...otherProps } = this.props;
+
+    const classes = classNames(className);
 
     return (
-      <Link to={to} className={classes}>
-        {this.props.children}
-      </Link>
+      <div className={classes}>
+        {React.createElement(
+          tag, Object.assign({}, otherProps, {
+            id: id,
+            href: href,
+            className: 'mdl-navigation__link'
+          })
+        )}
+      </div>
     )
   }
 }

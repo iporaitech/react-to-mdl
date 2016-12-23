@@ -23,15 +23,15 @@ class App extends React.Component {
             <LayoutTitle>react-to-mdl examples</LayoutTitle>
             <LayoutSpacer />
             <Navigation>
-              <NavigationLink to="/">Home</NavigationLink>
+              <NavigationLink href="/">Home</NavigationLink>
             </Navigation>
           </LayoutHeaderRow>
         </LayoutHeader>
 
         <LayoutDrawer>
           <Navigation>
-            <NavigationLink to="/">Home</NavigationLink>
-            <NavigationLink to="#cards">Cards</NavigationLink>
+            <NavigationLink href="/">Home</NavigationLink>
+            <NavigationLink href="#cards">Cards</NavigationLink>
             {/* <LogoutLink /> */}
           </Navigation>
         </LayoutDrawer>
