@@ -11,7 +11,6 @@ import Layout, {
   LayoutDrawer,
   LayoutContent
 } from 'src/layout';
-import 'material-design-lite/src/layout/_layout.scss';
 
 class App extends React.Component {
   render() {
@@ -30,7 +29,7 @@ class App extends React.Component {
 
         <LayoutDrawer>
           <Navigation>
-            <NavigationLink to="/">Home</NavigationLink>
+            <NavigationLink href="/">Home</NavigationLink>
             <NavigationLink to="#cards">Cards</NavigationLink>
             {/* <LogoutLink /> */}
           </Navigation>
