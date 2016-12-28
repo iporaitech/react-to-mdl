@@ -1,5 +1,5 @@
 /**
- * file: shared/card/index.js
+ * file: src/button/index.js
  *
  * React components to render MDL card components
  * See: https://github.com/google/material-design-lite/tree/v1.2.1/src/button
