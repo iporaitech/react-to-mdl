@@ -15,14 +15,14 @@ export class Tab extends React.Component {
   }
 
   render() {
-    const { className, href, isActive, children} = this.props;
+    const { className, href, isActive, children, ...otherProps } = this.props;
 
     const classes = classNames('mdl-tabs__tab', {
       'is-active': isActive
     }, className);
 
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...otherProps}>
         {children}
       </a>
     )
