@@ -1,12 +1,8 @@
 /**
- * file: shared/card/index.js
- *
  * React components to render MDL card components
  * See: https://github.com/google/material-design-lite/tree/v1.2.1/src/card
  */
 
-// MDL's js requires these styles to be imported globally
-import '!style!css!sass!material-design-lite/src/card/_card.scss';
 import Card from './Card';
 
 /*** exports ***/

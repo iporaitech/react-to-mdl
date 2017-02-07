@@ -1,5 +1,5 @@
 import { findDOMNode } from 'react-dom';
-import { mdl } from "exports?mdl=componentHandler!material-design-lite/material";
+import { mdl } from "exports-loader?mdl=componentHandler!material-design-lite/material";
 
 const mdlUpgrade = (WrappedComponent) => {
   return class extends WrappedComponent {

@@ -1,14 +1,10 @@
 /**
- * file: shared/textfield/index.js
- *
  * React component to render MDL textfield component
  * See: https://github.com/google/material-design-lite/tree/v1.2.1/src/textfield
  */
+
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-
-// MDL's js requires these styles to be imported globally
-import '!style!css!sass!material-design-lite/src/textfield/_textfield.scss';
 
 export default class Textfield extends React.Component {
   static propTypes = {

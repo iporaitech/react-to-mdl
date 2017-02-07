@@ -1,14 +1,10 @@
 /**
- * file: src/button/index.js
- *
  * React components to render MDL card components
  * See: https://github.com/google/material-design-lite/tree/v1.2.1/src/button
  */
- import React, { PropTypes } from 'react';
- import classNames from 'classnames';
 
-// MDL's js requires these styles to be imported globally
-import '!style!css!sass!material-design-lite/src/button/_button.scss';
+import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
 export default class Button extends React.Component {
   static propTypes = {
