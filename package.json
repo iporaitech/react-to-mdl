@@ -12,8 +12,7 @@
   "scripts": {
     "start": "node server.js",
     "build:dev": "webpack --watch-stdin --progress --color --config webpack.config.js",
-    "build:prod": "NODE_ENV=production webpack -p --progress --config webpack.config.js",
-    "postinstall": "ln -s lib/* .; rm index.js;"
+    "build:prod": "NODE_ENV=production webpack -p --progress --config webpack.config.js"
   },
   "keywords": [
     "React",
