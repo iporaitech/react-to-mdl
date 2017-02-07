@@ -4,7 +4,8 @@ const libraryName = 'react-to-mdl';
 
 // export config
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'cheap-module-eval-source-map',
+  devtool: process.env.NODE_ENV == 'production' ? 'source-map' : 'eval',
   entry: {
     button: './src/button',
     card: './src/card',
@@ -32,9 +33,9 @@ module.exports = {
     umdNamedDefine: true
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loader: 'babel',
+      loader: 'babel-loader',
       include: path.join(__dirname, 'src')
     }]
   }
