@@ -2,9 +2,7 @@
 
 React ES6 components ready to be MDL upgraded
 
-**NOTICE:** The default branch for this repo is **develop**. Check the
-[README](https://github.com/iporaitech/pwr2-docker/blob/master/README.md) on
-master to see what's in the last release.
+**NOTICE:** The default branch for this repo is **master** and it might contain code _under development_, including the contents of this README. Check the [releases](https://github.com/iporaitech/react-to-mdl/releases) for stable code and docs.
 
 ## Install Instructions
 
