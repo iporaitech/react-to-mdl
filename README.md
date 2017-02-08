@@ -10,19 +10,21 @@ React ES6 components ready to be MDL upgraded
 2. `npm install https://github.com/iporaitech/react-to-mdl/tarball/master --save`
 
 NOTICE:
+* this package depends on js from material-design-lite, specifically its `componentHandler`. In future releases we'll try to not depend on it anymore.
 * this package is not published in NPM yet.
 * you can also install an specific release by replacing master with the version
 i.e., `npm install https://github.com/iporaitech/react-to-mdl/tarball/v0.1.0 --save`
 
 ## Usage Examples
 
-See examples of this in
+See examples of this in:
+
 1. [examples](examples) (WIP)
+
 2. In [pwr2](https://github.com/iporaitech/pwr2-docker) project under **ui** directory
 
-You might also want to take a look at config files used to setup a
-[dev server](server.js) with `HotModuleReplacementPlugin`.
-
+You might also want to take a look at config used to setup a
+[webpack-dev-server](webpack-dev-server.config.js) with Hot Module Replacement for React.
 
 ## TODO
 
