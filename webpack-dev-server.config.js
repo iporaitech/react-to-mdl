@@ -1,63 +1,78 @@
+/**
+ *  webpack-dev-server configuration for react-to-mdl
+ */
+const { resolve } = require('path');
 const webpack = require('webpack');
-const path = require('path');
-const config = require('./webpack.config');
-const pkg = require(path.resolve(__dirname, 'package.json'));
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-// We need to pack all dev dependencies for dev server so don't define externals
-config.externals = null;
+module.exports = {
+  context: __dirname,
+  devtool: 'eval',
+  resolve: {
+    alias: {
+      // The path you'd use to get components from this lib in another project.
+      'react-to-mdl/lib': resolve('./src'),
 
-// Adjust config.resolve.root to reconfigure config.entry
-config.resolve = {
-  root: [
-    __dirname,
-    path.resolve('./src')
-  ]
-}
-
-// Entry is just an example bundle
-config.entry = {
-  example: [
-    'webpack-dev-server/client?http://0.0.0.0:3000',
+      // The same as main in  package.json
+      'react-to-mdl': resolve('./src/index.js')
+    }
+  },
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './examples'
-  ]
+    './examples/index.js'
+  ],
+  output: {
+    filename: 'example.js',
+    path: resolve(__dirname, 'dev'),
+    publicPath: '/'
+  },
+  devServer: {
+    hot: true,
+    publicPath: '/',
+    historyApiFallback: true,
+    stats: {
+      colors: true,
+      hash: false,
+      version: false,
+      chunks: false,
+      children: false
+    }
+  },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      loader: 'babel-loader',
+      exclude: /node_modules/,
+      options: {
+        presets: [
+          ["es2015", {"modules": false}],
+          "stage-0",
+          "react"
+        ],
+        plugins: [
+          "react-hot-loader/babel"
+        ]
+      }
+    },{
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader',
+          'resolve-url-loader',
+          'sass-loader?sourceMap'
+        ]
+      })
+    }]
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new ExtractTextPlugin({
+      filename: 'example.css',
+      allChunks: true // put css of all chunks in example.css
+    })
+  ],
 };
-
-// Set public path on config.output
-config.output.publicPath = '/static/';
-
-// Hot Dev plugins
-config.plugins = [
-  new webpack.HotModuleReplacementPlugin(),
-  new ExtractTextPlugin("example.css", {
-    allChunks: true // put css of all chunks in app.css
-  })
-];
-
-// Change the module.loaders to use hot stuff
-config.module.loaders = [{
-  test: /\.js$/,
-  loaders: ['react-hot', 'babel'],
-  include: path.join(__dirname, 'examples'),
-  // src can't be hot reloaded because it's a dependencies of examples
-  exclude: path.join(__dirname, 'src')
-},{
-  test: /\.js$/,
-  loader: 'babel',
-  include: path.join(__dirname, 'src')
-},{
-  test: /\.scss$/,
-  // loaders: ['style', 'css', 'resolve-url', 'sass?sourceMap']
-  loader: ExtractTextPlugin.extract(
-    'style?sourceMap',
-    [
-      'css',
-      'resolve-url',
-      'sass?sourceMap'
-    ]
-  )
-}];
-
-// export config
-module.exports = config;

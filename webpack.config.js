@@ -1,3 +1,6 @@
+/**
+ *  webpack configuration for react-to-mdl
+ */
 const webpack = require('webpack');
 const path = require('path');
 const libraryName = 'react-to-mdl';
@@ -36,7 +39,14 @@ module.exports = {
     rules: [{
       test: /\.jsx?$/,
       loader: 'babel-loader',
-      include: path.join(__dirname, 'src')
+      include: path.join(__dirname, 'src'),
+      options: {
+        presets: [
+          ["es2015", {"modules": false}],
+          "stage-0",
+          "react"
+        ]
+      }
     }]
   }
 };
