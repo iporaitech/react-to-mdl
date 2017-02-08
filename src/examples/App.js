@@ -12,11 +12,16 @@ import Layout, {
   LayoutContent
 } from 'react-to-mdl/lib/layout';
 import Spinner from 'react-to-mdl/lib/spinner';
+import Button from 'react-to-mdl/lib/button';
+import Grid, { Cell } from 'react-to-mdl/lib/grid';
+
+// Styles for App
+import './app.scss';
 
 class App extends React.Component {
   render() {
     return (
-      <Layout id="starwars">
+      <Layout>
         <LayoutHeader>
           <LayoutIcon />
           <LayoutHeaderRow>
@@ -31,16 +36,31 @@ class App extends React.Component {
         <LayoutDrawer>
           <Navigation>
             <NavigationLink href="/">Home</NavigationLink>
-            <NavigationLink to="#cards">Cards</NavigationLink>
-            {/* <LogoutLink /> */}
           </Navigation>
         </LayoutDrawer>
 
         <LayoutContent>
-          <h2 style={{textAlign: 'center'}}>Spinner example</h2>
-          <div className="loading">
-            <Spinner />
-          </div>
+          <p className="grid-cell-description">
+            Examples are shown in a Cells inside Grids components
+          </p>
+          <Grid>
+            <Cell desktop={1} className="example-block">
+              <h6>
+                Spinner
+              </h6>
+              <Spinner />
+            </Cell>
+
+            <Cell desktop={1} className="example-block">
+              <h6>
+                Button
+              </h6>
+              <Button type='button' raised primary colored>
+                Push me
+              </Button>
+            </Cell>
+          </Grid>
+
         </LayoutContent>
       </Layout>
     );

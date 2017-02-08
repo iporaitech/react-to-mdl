@@ -5,9 +5,6 @@ import { AppContainer } from 'react-hot-loader'; // wrapper component needed for
 // react-to-mdl based App
 import App from './App';
 
-// Styles
-import './app.scss';
-
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>

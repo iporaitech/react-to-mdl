@@ -1,0 +1,21 @@
+// This is an example of how to tell the app which styles to use
+//
+// In this case we're using styles from material-design-lite but actually we can whatever
+// as long as it add styles for the classnames of the used components.
+// NOTE however that we're importing the styles globally.
+@import '~material-design-lite/src/layout/layout';
+@import '~material-design-lite/src/grid/grid';
+@import '~material-design-lite/src/spinner/spinner';
+@import '~material-design-lite/src/typography/typography';
+@import '~material-design-lite/src/button/button';
+@import '~material-design-lite/src/typography/typography';
+@import '~material-design-lite/src/palette/palette';
+
+.example-block {
+  text-align: center;
+}
+
+.grid-cell-description {
+  @extend .mdl-typography--body-2;
+  @extend .mdl-typography--text-center;
+}
