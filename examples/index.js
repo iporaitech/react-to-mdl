@@ -1,20 +1,27 @@
-// file: examples/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Spinner from 'src/spinner';
+import { AppContainer } from 'react-hot-loader'; // wrapper component needed for HMR
 
+// react-to-mdl based App
 import App from './App';
+
+// Styles
 import './app.scss';
 
-// Import some global styles
-import 'material-design-lite/src/typography/_typography.scss';
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('react-root')
+  );
+}
 
-ReactDOM.render(
-  <App>
-    <h2 style={{textAlign: 'center'}}>Spinner example</h2>
-    <div className="loading">
-      <Spinner />
-    </div>
-  </App>,
-  document.getElementById('react-root')
-);
+render(App);
+
+// Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    render(App)
+  });
+}

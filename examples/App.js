@@ -1,5 +1,5 @@
 import React from 'react';
-import { mdlUpgrade } from 'src';
+import { mdlUpgrade } from 'react-to-mdl/lib';
 import Layout, {
   LayoutHeader,
   LayoutIcon,
@@ -10,7 +10,8 @@ import Layout, {
   NavigationLink,
   LayoutDrawer,
   LayoutContent
-} from 'src/layout';
+} from 'react-to-mdl/lib/layout';
+import Spinner from 'react-to-mdl/lib/spinner';
 
 class App extends React.Component {
   render() {
@@ -36,7 +37,10 @@ class App extends React.Component {
         </LayoutDrawer>
 
         <LayoutContent>
-          { this.props.children }
+          <h2 style={{textAlign: 'center'}}>Spinner example</h2>
+          <div className="loading">
+            <Spinner />
+          </div>
         </LayoutContent>
       </Layout>
     );

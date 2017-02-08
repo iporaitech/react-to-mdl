@@ -1,3 +1,14 @@
+// This is an example of how to tell the app which styles to use
+//
+// In this case we're using styles from material-design-lite but actually we can whatever
+// as long as it add styles for the classnames of the used components.
+// Note however that we're importing the styles globally.
+@import '~material-design-lite/src/layout/layout';
+@import '~material-design-lite/src/spinner/spinner';
+@import '~material-design-lite/src/typography/typography';
+
+
+// This is for the wrapper of the Spinner example
 .loading {
   background-color: rgba(225, 225, 225, 0.7);
   width: 100%;
