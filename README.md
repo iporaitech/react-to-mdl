@@ -20,11 +20,14 @@ i.e., `npm install https://github.com/iporaitech/react-to-mdl/tarball/v0.1.0 --s
 See examples of this in:
 
 1. [examples](examples) (WIP)
-
 2. In [pwr2](https://github.com/iporaitech/pwr2-docker) project under **ui** directory
 
 You might also want to take a look at config used to setup a
 [webpack-dev-server](webpack-dev-server.config.js) with Hot Module Replacement for React.
+
+## About `mdlUpgrade`
+
+It is very important to note that the `mdlUpgrade()` function exported from this package receives either a **functional component** or a **class component** extending `React.Component` and in either case returns a **class component** so it can upgrade elements when `componentDidMount()` and downgrade them when `componentWillUnmount()`. The exact behavior if another _kind of class_ is passed is _unknown_.
 
 ## TODO
 
