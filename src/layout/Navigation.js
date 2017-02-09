@@ -1,21 +1,19 @@
-// file: shared/layout/Navigation.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Navigation extends React.Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const Navigation = (props) => {
+  const { className, children, ...otherProps } = props;
+  const classes = classNames('mdl-navigation', className);
 
-  render() {
-    const { className, children, ...otherProps } = this.props;
-    const classes = classNames('mdl-navigation', className);
-
-    return (
-      <nav className={classes} {...otherProps}>
-        {children}
-      </nav>
-    )
-  }
+  return (
+    <nav className={classes} {...otherProps}>
+      {children}
+    </nav>
+  )
 }
+
+Navigation.propTypes = {
+  className: PropTypes.string
+}
+
+export { Navigation }

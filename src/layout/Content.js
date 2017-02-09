@@ -1,21 +1,19 @@
-// file: shared/layout/Content.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Content extends React.Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const Content = (props) => {
+  const { className, children } = props;
+  const classes = classNames('mdl-layout__content', className);
 
-  render() {
-    const { className } = this.props;
-    const classes = classNames('mdl-layout__content', className);
-
-    return (
-      <main className={classes}>
-        {this.props.children}
-      </main>
-    )
-  }
+  return (
+    <main className={classes}>
+      {children}
+    </main>
+  )
 }
+
+Content.propTypes = {
+  className: PropTypes.string
+}
+
+export { Content }

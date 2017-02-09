@@ -1,21 +1,19 @@
-// file: shared/layout/Icon.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Icon extends React.Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const Icon = (props) => {
+  const { className, children } = props;
+  const classes = classNames('mdl-layout-icon', className);
 
-  render() {
-    const { className } = this.props;
-    const classes = classNames('mdl-layout-icon', className);
-
-    return (
-      <div className={classes}>
-        {this.props.children}
-      </div>
-    )
-  }
+  return (
+    <div className={classes}>
+      {children}
+    </div>
+  )
 }
+
+Icon.propTypes = {
+  className: PropTypes.string
+}
+
+export { Icon }

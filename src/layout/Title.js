@@ -1,21 +1,19 @@
-// file: shared/layout/Title.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Title extends React.Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const Title = (props) => {
+  const { className, children } = props;
+  const classes = classNames('mdl-layout__title', className);
 
-  render() {
-    const { className } = this.props;
-    const classes = classNames('mdl-layout__title', className);
-
-    return (
-      <span className={classes}>
-        {this.props.children}
-      </span>
-    )
-  }
+  return (
+    <span className={classes}>
+      {children}
+    </span>
+  );
 }
+
+Title.propTypes = {
+  className: PropTypes.string
+}
+
+export { Title }

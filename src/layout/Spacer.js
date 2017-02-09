@@ -1,17 +1,15 @@
-// file: shared/layout/Spacer.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Spacer extends React.Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const Spacer = (props) => {
+  const { className } = props;
+  const classes = classNames('mdl-layout-spacer', className);
 
-  render() {
-    const { className } = this.props;
-    const classes = classNames('mdl-layout-spacer', className);
-
-    return <div className={classes}></div>
-  }
+  return <div className={classes}></div>
 }
+
+Spacer.propTypes = {
+  className: PropTypes.string
+}
+
+export { Spacer }
