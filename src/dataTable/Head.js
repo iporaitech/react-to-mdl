@@ -1,17 +1,15 @@
-// file: shared/dataTable/Head.js
 import React from 'react';
 
-export class Head extends React.Component {
+const Head = (props) => {
+  const { children } = props;
 
-  render() {
-    const { children } = this.props;
-
-    return (
-      <thead>
-        <tr>
-          {children}
-        </tr>
-      </thead>
-    )
-  }
+  return (
+    <thead>
+      <tr>
+        {children}
+      </tr>
+    </thead>
+  )
 }
+
+export { Head }
