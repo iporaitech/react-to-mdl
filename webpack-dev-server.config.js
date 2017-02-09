@@ -7,7 +7,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: __dirname,
-  devtool: 'eval',
+  // devtool: 'eval',
+  devtool: 'cheap-module-eval-source-map',
   resolve: {
     alias: {
       // The path you'd use to get components from this lib in another project.
