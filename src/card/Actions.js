@@ -1,25 +1,23 @@
-// file: shared/card/Actions.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Actions extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    border: PropTypes.bool
-  }
+const Actions = (props) => {
+  const { className, border, children, ...otherProps } = props;
 
-  render() {
-    const { className, border, children, ...otherProps } = this.props;
+  const classes = classNames('mdl-card__actions', {
+    'mdl-card--border': border
+  }, className);
 
-    const classes = classNames('mdl-card__actions', {
-      'mdl-card--border': border
-    }, className);
-
-    return (
-      <div className={classes} {...otherProps}>
-        {children}
-      </div>
-    );
-  }
+  return (
+    <div className={classes} {...otherProps}>
+      {children}
+    </div>
+  );
 }
+
+Actions.propTypes = {
+  className: PropTypes.string,
+  border: PropTypes.bool
+}
+
+export { Actions }

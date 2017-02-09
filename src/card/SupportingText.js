@@ -1,22 +1,20 @@
-// file: shared/card/SupportingText.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class SupportingText extends React.Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const SupportingText = (props) => {
+  const { className, children, ...otherProps } = props;
 
-  render() {
-    const { className, children, ...otherProps } = this.props;
-    
-    const classes = classNames('mdl-card__supporting-text', className);
+  const classes = classNames('mdl-card__supporting-text', className);
 
-    return (
-      <div className={classes} {...otherProps}>
-        {children}
-      </div>
-    );
-  }
+  return (
+    <div className={classes} {...otherProps}>
+      {children}
+    </div>
+  );
 }
+
+SupportingText.propTypes = {
+  className: PropTypes.string
+}
+
+export { SupportingText }

@@ -1,22 +1,20 @@
-// file: shared/card/Title.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Title extends React.Component {
-  static propTypes = {
-    className: PropTypes.string
-  }
+const Title = (props) => {
+  const { className, children, ...otherProps } = props;
 
-  render() {
-    const { className, children, ...otherProps } = this.props;
+  const classes = classNames('mdl-card__title', className);
 
-    const classes = classNames('mdl-card__title', className);
-
-    return (
-      <div className={classes} {...otherProps}>
-        {children}
-      </div>
-    );
-  }
+  return (
+    <div className={classes} {...otherProps}>
+      {children}
+    </div>
+  );
 }
+
+Title.propTypes = {
+  className: PropTypes.string
+}
+
+export { Title }
