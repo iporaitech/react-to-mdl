@@ -1,27 +1,26 @@
-// file: shared/menu/Menu.js
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class Menu extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    bottomRight: PropTypes.bool
-  }
+const Menu = (props) => {
+  const { className, bottomRight, children, ...otherProps } = props;
+  const classes = classNames('mdl-menu mdl-js-menu', {
+    'mdl-menu--bottom-right': bottomRight
+  }, className);
 
-  static defaultProps = {
-    bottomRight: false
-  }
-
-  render() {
-    const { className, bottomRight, children, ...otherProps } = this.props;
-    const classes = classNames('mdl-menu mdl-js-menu', {
-      'mdl-menu--bottom-right': bottomRight
-    }, className);
-
-    return (
-      <ul className={classes} {...otherProps}>
-        {children}
-      </ul>
-    )
-  }
+  return (
+    <ul className={classes} {...otherProps}>
+      {children}
+    </ul>
+  )
 }
+
+Menu.propTypes = {
+  className: PropTypes.string,
+  bottomRight: PropTypes.bool
+}
+
+Menu.defaultProps = {
+  bottomRight: false
+}
+
+export default Menu;
