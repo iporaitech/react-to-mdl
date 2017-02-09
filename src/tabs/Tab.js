@@ -1,30 +1,28 @@
-// file: shared/tabs/Tab.js
-
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export class Tab extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    href: PropTypes.string.isRequired,
-    isActive: PropTypes.bool
-  }
+const Tab = (props) => {
+  const { className, href, isActive, children, ...otherProps } = props;
 
-  static defaultProps = {
-    isActive: false
-  }
+  const classes = classNames('mdl-tabs__tab', {
+    'is-active': isActive
+  }, className);
 
-  render() {
-    const { className, href, isActive, children, ...otherProps } = this.props;
-
-    const classes = classNames('mdl-tabs__tab', {
-      'is-active': isActive
-    }, className);
-
-    return (
-      <a href={href} className={classes} {...otherProps}>
-        {children}
-      </a>
-    )
-  }
+  return (
+    <a href={href} className={classes} {...otherProps}>
+      {children}
+    </a>
+  )
 }
+
+Tab.propTypes = {
+  className: PropTypes.string,
+  href: PropTypes.string.isRequired,
+  isActive: PropTypes.bool
+}
+
+Tab.defaultProps = {
+  isActive: false
+}
+
+export { Tab }
