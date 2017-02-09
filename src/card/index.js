@@ -13,3 +13,4 @@ export {SubtitleText as CardSubtitleText} from './SubtitleText';
 export {SupportingText as CardSupportingText} from './SupportingText';
 export {Media as CardMedia} from './Media';
 export {Actions as CardActions} from './Actions';
+export {Menu as CardMenu} from './Menu';

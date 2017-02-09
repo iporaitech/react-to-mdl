@@ -7,7 +7,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 const Button = (props) => {
-  const { className, raised, fab, miniFab, icon, colored,
+  const { tag, className, raised, fab, miniFab, icon, colored,
     primary, accent, rippleEffect, children, ...otherProps } = props;
 
   const classes = classNames('mdl-button mdl-js-button', {
@@ -20,15 +20,13 @@ const Button = (props) => {
     'mdl-button--accent': accent,
     'mdl-js-ripple-effect': rippleEffect
   }, className);
+  const _props = Object.assign({}, ...otherProps, {className: classes});
 
-  return (
-    <button className={classes} {...otherProps}>
-      {children}
-    </button>
-  )
+  return React.createElement(tag, _props, children);
 }
 
 Button.propTypes = {
+  tag: PropTypes.string,
   className: PropTypes.string,
   type: PropTypes.string,
   raised: PropTypes.bool,
@@ -42,6 +40,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
+  tag: 'button',
   type: 'submit',
   raised: false,
   fab: false,
