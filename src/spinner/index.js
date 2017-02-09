@@ -9,26 +9,25 @@ import classNames from 'classnames';
 // This component usually needs to upgrade itself !!!
 import { mdlUpgrade } from '../lib/mdlUpgrade';
 
-class Spinner extends React.Component {
-  static propTypes = {
-    isActive: PropTypes.bool,
-    singleColor: PropTypes.bool
-  }
-  static defaultProps = {
-    isActive: true,
-    singleColor: false
-  }
+const Spinner = (props) => {
+  const { className, isActive, singleColor, ...otherProps } = props;
 
-  render(){
-    const { className, isActive, singleColor, ...otherProps } = this.props;
+  const classes = classNames('mdl-spinner mdl-js-spinner', {
+    'is-active': isActive,
+    'mdl-spinner--single-color': singleColor
+  }, className);
 
-    const classes = classNames('mdl-spinner mdl-js-spinner', {
-      'is-active': isActive,
-      'mdl-spinner--single-color': singleColor
-    }, className);
+  return <div className={classes} {...otherProps}></div>
+}
 
-    return <div className={classes}></div>
-  }
+Spinner.propTypes = {
+  isActive: PropTypes.bool,
+  singleColor: PropTypes.bool
+}
+
+Spinner.defaultProps = {
+  isActive: true,
+  singleColor: false
 }
 
 export default mdlUpgrade(Spinner);
