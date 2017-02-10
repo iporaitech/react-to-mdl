@@ -32,7 +32,7 @@ module.exports = {
     path: path.join(__dirname, 'lib'),
     filename: '[name].js',
     library: libraryName,
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
     umdNamedDefine: true
   },
   module: {
