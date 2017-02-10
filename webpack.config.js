@@ -8,7 +8,7 @@ const libraryName = 'react-to-mdl';
 // export config
 module.exports = {
   // devtool: 'cheap-module-eval-source-map',
-  devtool: process.env.NODE_ENV == 'production' ? 'source-map' : 'eval',
+  devtool: process.env.NODE_ENV == 'production' ? false : 'eval',
   entry: {
     button: './src/button',
     card: './src/card',
