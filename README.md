@@ -25,9 +25,29 @@ See examples of this in:
 You might also want to take a look at config used to setup a
 [webpack-dev-server](webpack-dev-server.config.js) with Hot Module Replacement for React.
 
-## About `mdlUpgrade`
+## About `mdlSetComponentHandler()`
 
-It is very important to note that the `mdlUpgrade()` function exported from this package receives either a **functional component** or a **class component** extending `React.Component` and in either case returns a **class component** so it can upgrade elements when `componentDidMount()` and downgrade them when `componentWillUnmount()`. The exact behavior if another _kind of class_ is passed is _unknown_.
+It is very important to note that the `mdlSetComponentHandler()` function exported from this package receives the `componentHandler` object from **material.js** and returns a function that we call `mdlUpgrade()` which receives either a **functional component** or a **class component** extending **directly** from `React.Component` and in either case returns a **class component** so it can upgrade elements when `componentDidMount()` and downgrade them when `componentWillUnmount()`. For example:
+
+```javascript
+// App.js
+
+import React from 'react';
+import { mdlSetComponentHandler } from 'react-to-mdl/lib';
+import Layout from 'react-to-mdl/lib/layout';
+// import other stuff
+
+// Get componentHandler as mdl from material.js using exports-loader
+// NOTICE that material.js is not modular
+import { mdl } from "exports-loader?mdl=componentHandler!material-design-lite/material";
+const mdlUpgrade = mdlSetComponentHandler(mdl);
+
+const App = (props) => {
+  // render stuff here
+}
+
+export default mdlUpgrade(App);
+```
 
 ## TODO
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mdlUpgrade } from 'react-to-mdl/lib';
+import { mdlSetComponentHandler } from 'react-to-mdl/lib';
 import Layout, {
   LayoutHeader,
   LayoutIcon,
@@ -23,6 +23,10 @@ import Card, {
   CardTitleText,
   CardMenu
 } from 'react-to-mdl/lib/card'
+
+// Get componentHandler as mdl from material.js
+import { mdl } from "exports-loader?mdl=componentHandler!material-design-lite/material";
+const mdlUpgrade = mdlSetComponentHandler(mdl);
 
 // Styles for App
 import './app.scss';

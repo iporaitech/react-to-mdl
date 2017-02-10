@@ -1,34 +1,38 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import { mdl } from "exports-loader?mdl=componentHandler!material-design-lite/material";
+
 
 /**
- * Returns a component class that MDL upgrades when componentDidMount() and
- * MDL downgrades when componentWillUnmount()
+ * Returns a function that receives a functional or class Component so its DOM can be
+ * upgraded by componentHandler.upgradeElements() when componentDidMount() and downgraded
+ * when componentHandler.componentWillUnmount()
  *
- * @param {class | function} Component - either a class extending React.Component
- *                                       or a function.
+ * @param { Object } componentHandler - componentHandler from material.js
+ * @returns { function(class | function) } - receives either a class extending React.Component
+ *                                           or a functional component.
  */
-const mdlUpgrade = (Component) => {
-  if (Component.prototype instanceof React.Component) {
-    return _upgradeClass(Component);
-  } else {
-    return _upgradeFunction(Component);
+const mdlSetComponentHandler = (componentHandler) => {
+  const mdlUpgrade = (Component) => {
+    if (Component.prototype instanceof React.Component) {
+      return _upgradeClass(Component, componentHandler);
+    } else {
+      return _upgradeFunction(Component, componentHandler);
+    }
   }
+  return mdlUpgrade;
 }
-
 
 //
 // Private helper functions
 //
 
-const _upgradeFunction = (Component) => {
+const _upgradeFunction = (Component, componentHandler) => {
   return class extends React.Component {
     componentDidMount() {
-      mdl.upgradeElements(findDOMNode(this));
+      componentHandler.upgradeElements(findDOMNode(this));
     }
     componentWillUnmount() {
-      mdl.downgradeElements(findDOMNode(this));
+      componentHandler.downgradeElements(findDOMNode(this));
     }
     render() {
       return Component(
@@ -38,21 +42,21 @@ const _upgradeFunction = (Component) => {
   }
 }
 
-const _upgradeClass = (Component) => {
+const _upgradeClass = (Component, componentHandler) => {
   return class extends Component {
     componentDidMount() {
       if(super.componentDidMount){
         super.componentDidMount();
       }
-      mdl.upgradeElements(findDOMNode(this));
+      componentHandler.upgradeElements(findDOMNode(this));
     }
     componentWillUnmount(){
       if(super.componentWillUnmount){
         super.componentWillUnmount();
       }
-      mdl.downgradeElements(findDOMNode(this));
+      componentHandler.downgradeElements(findDOMNode(this));
     }
   }
 }
 
-export { mdlUpgrade };
+export { mdlSetComponentHandler };

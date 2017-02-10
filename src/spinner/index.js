@@ -6,9 +6,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-// This component usually needs to upgrade itself !!!
-import { mdlUpgrade } from '../lib/mdlUpgrade';
-
 const Spinner = (props) => {
   const { className, isActive, singleColor, ...otherProps } = props;
 
@@ -30,4 +27,4 @@ Spinner.defaultProps = {
   singleColor: false
 }
 
-export default mdlUpgrade(Spinner);
+export default Spinner;
