@@ -23,6 +23,7 @@ import Card, {
   CardTitleText,
   CardMenu
 } from 'react-to-mdl/lib/card'
+import Textfield from 'react-to-mdl/lib/textfield';
 
 // Get componentHandler as mdl from material.js
 import { mdl } from "exports-loader?mdl=componentHandler!material-design-lite/material";
@@ -56,20 +57,35 @@ const App = (props) => {
           Examples are shown in a Cells inside Grids components
         </p>
         <Grid>
-          <Cell desktop={2} className="example-block">
-            <h6>
-              Spinner
-            </h6>
-            <Spinner />
-          </Cell>
+          <Cell desktop={6}>
+            <Grid>
+              <Cell desktop={6} className="example-block">
+                <h6>
+                  Spinner
+                </h6>
+                <Spinner />
+              </Cell>
 
-          <Cell desktop={2} className="example-block">
-            <h6>
-              Button
-            </h6>
-            <Button id='button1' type='button' raised primary colored>
-              Push me
-            </Button>
+              <Cell desktop={6} className="example-block">
+                <h6>
+                  Button
+                </h6>
+                <Button id='button1' type='button' raised primary colored>
+                  Push me
+                </Button>
+              </Cell>
+            </Grid>
+            <Grid>
+              <Cell desktop={12} className="example-block">
+                <h6>
+                  Textfield
+                </h6>
+                <Textfield id="email"
+                  labelText="Email"
+                  floatingLabel={true}
+                />
+              </Cell>
+            </Grid>
           </Cell>
 
           <Cell desktop={6} className="example-block">
@@ -95,8 +111,8 @@ const App = (props) => {
               </CardMenu>
             </Card>
           </Cell>
-
         </Grid>
+
       </LayoutContent>
     </Layout>
   );
