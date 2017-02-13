@@ -5,7 +5,7 @@ const TitleText = (props) => {
   const { className, tag, children, ...otherProps } = props;
 
   const classes = classNames('mdl-card__title-text', className);
-  const _props = Object.assign({}, ...otherProps, {className: classes});
+  const _props = Object.assign({}, otherProps, {className: classes});
 
   return React.createElement(tag, _props, children);
 }

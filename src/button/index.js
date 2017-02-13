@@ -20,7 +20,7 @@ const Button = (props) => {
     'mdl-button--accent': accent,
     'mdl-js-ripple-effect': rippleEffect
   }, className);
-  const _props = Object.assign({}, ...otherProps, {className: classes});
+  const _props = Object.assign({}, otherProps, {className: classes});
 
   return React.createElement(tag, _props, children);
 }

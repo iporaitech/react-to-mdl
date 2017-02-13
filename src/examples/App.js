@@ -67,7 +67,7 @@ const App = (props) => {
             <h6>
               Button
             </h6>
-            <Button type='button' raised primary colored>
+            <Button id='button1' type='button' raised primary colored>
               Push me
             </Button>
           </Cell>
