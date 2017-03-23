@@ -24,15 +24,17 @@ import Card, {
   CardMenu
 } from 'react-to-mdl/lib/card'
 import Textfield from 'react-to-mdl/lib/textfield';
+import ListSnippets from 'react-to-mdl/lib/list/snippets';
 
-// Get componentHandler as mdl from material.js
-import { mdl } from "exports-loader?mdl=componentHandler!material-design-lite/material";
-const mdlUpgrade = mdlSetComponentHandler(mdl);
+// Get componentHandler as compHandler from material.js
+import { compHandler } from "exports-loader?compHandler=componentHandler!material-design-lite/material";
+const mdlUpgrade = mdlSetComponentHandler(compHandler);
 
 // Styles for App
 import './app.scss';
 
 const App = (props) => {
+
   return (
     <Layout>
       <LayoutHeader>
@@ -113,6 +115,32 @@ const App = (props) => {
           </Cell>
         </Grid>
 
+        <Grid>
+          <Cell col={2} className="example-block">
+            <h6>Simple List</h6>
+            { ListSnippets.simpleList }
+          </Cell>
+          <Cell col={3} className="example-block">
+            <h6>List with icons</h6>
+            { ListSnippets.withIcons }
+          </Cell>
+          <Cell col={3} className="example-block">
+            <h6>List with avatars and actions</h6>
+            { ListSnippets.avatarsAndActions }
+          </Cell>
+          <Cell col={3} className="example-block">
+            <h6>List with avatars and controls</h6>
+            { ListSnippets.avatarsAndControls }
+          </Cell>
+          <Cell col={4} className="example-block">
+            <h6>List Two line</h6>
+            { ListSnippets.twoLine }
+          </Cell>
+          <Cell col={7} className="example-block">
+            <h6>List Three line</h6>
+            { ListSnippets.threeLine }
+          </Cell>
+        </Grid>
       </LayoutContent>
     </Layout>
   );
