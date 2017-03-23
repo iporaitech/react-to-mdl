@@ -19,6 +19,7 @@ module.exports = {
     spinner: './src/spinner',
     tabs: './src/tabs',
     textfield: './src/textfield',
+    list: './src/list',
     // The following are sub-components "un-nested" from MDL hiearchy
     Action: './src/Action',
     Content: './src/Content',
@@ -26,6 +27,7 @@ module.exports = {
     Info: './src/Info',
     Subtitle: './src/Subtitle',
     Text: './src/Text',
+    // main
     index: './src/index'
   },
   externals: [
