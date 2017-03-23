@@ -20,7 +20,8 @@ i.e., `npm install https://github.com/iporaitech/react-to-mdl/tarball/v0.1.0 --s
 See examples of this in:
 
 1. [examples](examples) (WIP)
-2. In [pwr2](https://github.com/iporaitech/pwr2-docker) project under **ui** directory
+2. In tests and snippets in this project.
+3. In [pwr2](https://github.com/iporaitech/pwr2-docker) project under **ui** directory
 
 You might also want to take a look at config used to setup a
 [webpack-dev-server](webpack-dev-server.config.js) with Hot Module Replacement for React.
@@ -49,9 +50,16 @@ const App = (props) => {
 export default mdlUpgrade(App);
 ```
 
+## Testing
+
+We use **[jest](https://facebook.github.io/jest/)** & **[enzyme](http://airbnb.io/enzyme/)** for testing. For the moment we just test that the components render as in the MDL examples.
+
+* To run all the test suite execute `npm test`.
+* To run specific tests install **jest** globally `yarn global add jest` (or add the one in this project to your `PATH`) and then use the `jest` CLI to run tests. For example `jest --watch --verbose src/list/__tests__/` will auto-run only the tests for list every time you save a file.
+
 ## TODO
 
 1. Other Material Design Lite components
-2. Tests and linting.
+2. Linting and tests in some components.
 3. Improve docs and examples (leverage pwr2 docs infrastructure)
 4. Lots of other stuff.
