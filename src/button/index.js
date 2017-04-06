@@ -41,7 +41,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   tag: 'button',
-  tag: 'submit',
+  type: 'button',
   raised: false,
   fab: false,
   miniFab: false,
