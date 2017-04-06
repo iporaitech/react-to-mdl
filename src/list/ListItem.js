@@ -3,7 +3,11 @@ import classNames from 'classnames';
 
 /** props **/
 const propTypes = {
-  tag: PropTypes.string
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.func
+  ])
 }
 const defaultProps = {
   tag: 'li'

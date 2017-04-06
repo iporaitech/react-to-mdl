@@ -26,9 +26,13 @@ const Button = (props) => {
 }
 
 Button.propTypes = {
-  tag: PropTypes.string,
+  type: PropTypes.string,
   className: PropTypes.string,
-  tag: PropTypes.string,
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.func
+  ]),
   raised: PropTypes.bool,
   fab: PropTypes.bool,
   miniFab: PropTypes.bool,

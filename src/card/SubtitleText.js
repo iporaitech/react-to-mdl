@@ -12,7 +12,11 @@ const SubtitleText = (props) => {
 
 SubtitleText.propTypes = {
   className: PropTypes.string,
-  tag: PropTypes.string
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.func
+  ])
 }
 
 export { SubtitleText }
