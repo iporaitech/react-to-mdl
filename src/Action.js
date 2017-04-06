@@ -7,16 +7,16 @@ import classNames from 'classnames';
 
 /** Props **/
 const propTypes = {
-  type: PropTypes.string
+  tag: PropTypes.string
 };
 const defaultProps = {
-  type: 'button'
+  tag: 'button'
 };
 
 /** Component **/
 const Action = (props) => {
   const {
-    type,
+    tag,
     className,
     children,
 
@@ -35,7 +35,7 @@ const Action = (props) => {
   }, className);
   const _props = Object.assign({}, otherProps, {className: classes});
 
-  return React.createElement(type, _props, children)
+  return React.createElement(tag, _props, children)
 }
 
 

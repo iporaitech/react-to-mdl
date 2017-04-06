@@ -3,16 +3,16 @@ import classNames from 'classnames';
 
 /** props **/
 const propTypes = {
-  type: PropTypes.string
+  tag: PropTypes.string
 }
 const defaultProps = {
-  type: 'li'
+  tag: 'li'
 }
 
 /** Component **/
 const ListItem = (props) => {
   const {
-    type,
+    tag,
     className,
     children,
 
@@ -30,7 +30,7 @@ const ListItem = (props) => {
   }, className);
   const _props = Object.assign({}, otherProps, {className: classes});
 
-  return React.createElement(type, _props, children);
+  return React.createElement(tag, _props, children);
 }
 
 /** exports **/

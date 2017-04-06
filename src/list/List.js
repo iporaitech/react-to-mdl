@@ -2,19 +2,19 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 const List = (props) => {
-  const { type, className, children, ...otherProps } = props;
+  const { tag, className, children, ...otherProps } = props;
   const classes = classNames('mdl-list', className);
   const _props = Object.assign({}, otherProps, {className: classes});
 
-  return React.createElement(type, _props, children)
+  return React.createElement(tag, _props, children)
 }
 
 List.propTypes = {
-  type: PropTypes.string
+  tag: PropTypes.string
 }
 
 List.defaultProps = {
-  type: 'ul'
+  tag: 'ul'
 }
 
 export default List;

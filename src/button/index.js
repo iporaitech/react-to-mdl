@@ -28,7 +28,7 @@ const Button = (props) => {
 Button.propTypes = {
   tag: PropTypes.string,
   className: PropTypes.string,
-  type: PropTypes.string,
+  tag: PropTypes.string,
   raised: PropTypes.bool,
   fab: PropTypes.bool,
   miniFab: PropTypes.bool,
@@ -41,7 +41,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   tag: 'button',
-  type: 'submit',
+  tag: 'submit',
   raised: false,
   fab: false,
   miniFab: false,

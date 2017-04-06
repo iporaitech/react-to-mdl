@@ -8,7 +8,7 @@ const NavigationLink = (props) => {
 
   const tag = to ? Link : 'a';
 
-  let baseProps =  Object.assign( (to ? { to } : { href }), {className: classes});
+  let baseProps =  Object.assign((to ? { to } : { href }), {className: classes});
 
   return (
     React.createElement(

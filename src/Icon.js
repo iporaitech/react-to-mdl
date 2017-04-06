@@ -7,17 +7,17 @@ import classNames from 'classnames';
 
 /** Props **/
 const propTypes = {
-  type: PropTypes.string
+  tag: PropTypes.string
 }
 
 const defaultProps = {
-  type: 'i'
+  tag: 'i'
 }
 
 /** Component **/
 const Icon = (props) => {
   const {
-    type,
+    tag,
     className,
     children,
 
@@ -35,7 +35,7 @@ const Icon = (props) => {
   }, className);
   const _props = Object.assign({}, otherProps, {className: classes});
 
-  return React.createElement(type, _props, children)
+  return React.createElement(tag, _props, children)
 }
 
 /** exports **/
