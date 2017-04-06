@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { mdlSetComponentHandler } from 'react-to-mdl/lib';
 import Layout, {
   LayoutHeader,
@@ -31,19 +32,19 @@ const App = (props) => {
           <LayoutTitle>react-to-mdl examples</LayoutTitle>
           <LayoutSpacer />
           <Navigation>
-            <NavigationLink to="/">Home</NavigationLink>
+            <NavigationLink tag={Link} to="/">Home</NavigationLink>
           </Navigation>
         </LayoutHeaderRow>
       </LayoutHeader>
 
       <LayoutDrawer>
         <Navigation>
-          <NavigationLink to="/">Home</NavigationLink>
-          <NavigationLink to="/buttons">Buttons</NavigationLink>
-          <NavigationLink to="/cards">Cards</NavigationLink>
-          <NavigationLink to="/lists">Lists</NavigationLink>
-          <NavigationLink to="/loading">Loading</NavigationLink>
-          <NavigationLink to="/textfields">Text fields</NavigationLink>
+          <NavigationLink tag={Link} to="/">Home</NavigationLink>
+          <NavigationLink tag={Link} to="/buttons">Buttons</NavigationLink>
+          <NavigationLink tag={Link} to="/cards">Cards</NavigationLink>
+          <NavigationLink tag={Link} to="/lists">Lists</NavigationLink>
+          <NavigationLink tag={Link} to="/loading">Loading</NavigationLink>
+          <NavigationLink tag={Link} to="/textfields">Text fields</NavigationLink>
         </Navigation>
       </LayoutDrawer>
 

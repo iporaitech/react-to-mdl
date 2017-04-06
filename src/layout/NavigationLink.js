@@ -1,26 +1,32 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router';
+
+/** Props **/
+const propTypes = {
+  tag: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.func
+  ])
+}
+
+const defaultProps = {
+  tag: 'a'
+}
 
 const NavigationLink = (props) => {
-  const { className, to, href, ...otherProps } = props;
+  const {
+    tag,
+    className,
+    children,
+    ...otherProps
+  } = props;
   const classes = classNames('mdl-navigation__link', className);
+  const _props = Object.assign({}, otherProps, {className: classes});
 
-  const tag = to ? Link : 'a';
-
-  let baseProps =  Object.assign((to ? { to } : { href }), {className: classes});
-
-  return (
-    React.createElement(
-      tag, Object.assign({}, otherProps, baseProps)
-    )
-  );
+  return React.createElement(tag, _props, children);
 }
 
-NavigationLink.propTypes = {
-  className: PropTypes.string,
-  to: PropTypes.string,
-  href: PropTypes.string
-}
-
+NavigationLink.propTypes = propTypes;
+NavigationLink.defaultProps = defaultProps;
 export { NavigationLink }
